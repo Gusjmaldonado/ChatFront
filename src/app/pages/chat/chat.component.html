@@ -1,0 +1,25 @@
+<div class="chat">
+    <div>
+        <i>{{audioOn ? '🔊' : '🔈'}}</i><input type="checkbox" [(ngModel)]="audioOn">
+    </div>
+    <div class="msg">
+        <ul>
+            <li *ngFor="let msj of mensajes" [ngClass]="{propio: (msj.socket_id === socket.id)}">
+                <strong>{{msj.usuario}}:</strong>
+                <strong>{{msj.mensaje}}</strong>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <p>Clientes conectados: {{numClientes}}</p>
+    </div>
+    <div>
+        <label>Usuario</label>
+        <input type="text" [(ngModel)]="data.usuario">
+    </div>
+    <div>
+        <label>Mensaje</label>
+        <input type="text" [(ngModel)]="data.mensaje">
+    </div>
+    <button (click)="onClick()">Enviar</button>
+</div>
